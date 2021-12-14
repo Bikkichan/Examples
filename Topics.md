@@ -1,5 +1,7 @@
 # Topics 
-## https://www.python.org/dev/peps/pep-0020/
+
+## Python and Programing in general
+https://www.python.org/dev/peps/pep-0020/
 
 ## SOQL scripts
 ---
