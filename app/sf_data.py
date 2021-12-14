@@ -1,4 +1,5 @@
-import config 
+import sys
+import app.config as config
 import pandas as pd
 from simple_salesforce import Salesforce
 
@@ -8,13 +9,17 @@ from simple_salesforce import Salesforce
 # function to pass query to - makes a connection with SF credentials
 
 def query_sf(query):
-    sf = Salesforce(username = config.USERNAME, 
-                    password = config.PASSWORD,
-                    security_token = config.SECURITY_TOKEN,
-                    version = config.VERSION)
+    try:
+        sf = Salesforce(username = config.USERNAME, 
+                        password = config.PASSWORD,
+                        security_token = config.SECURITY_TOKEN,
+                        version = config.VERSION)
 
-    sf.query_all(query)
-    return pd.json_normalize(sfdata_raw['records'])
+        sfdata_raw = sf.query_all(query)
+        return pd.json_normalize(sfdata_raw['records'])
+    except Exception:
+        print('Salesforce Credentials not valid')
+        sys.exit()
 
 
 def TIPP1_FR_data(date_string):

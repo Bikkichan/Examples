@@ -1,8 +1,8 @@
 # import sys
-# sys.path.insert(0, './app')
+# sys.path.append('/path/to/whatever')
 import app.data_format as format
 import app.sf_data as sf
-import app.config as config
+
 
 ## Querying Salesforce for data
 date_string = input('Enter the date (YYYY-MM-DD): ')
