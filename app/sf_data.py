@@ -1,4 +1,6 @@
 import config 
+import pandas as pd
+from simple_salesforce import Salesforce
 
 #%%
 
@@ -6,14 +8,10 @@ import config
 # function to pass query to - makes a connection with SF credentials
 
 def query_sf(query):
-    # Connection to salesforce - refer to JSON file
-    with open("SalesforceLogin_KW.json", "r") as login_file:
-        creds = json.load(login_file)
-
-    sf = Salesforce(username=creds['login']['username'],
-                    password=creds['login']['password'],
-                    security_token=creds['login']['token'],
-                    version='47.0')
+    sf = Salesforce(username = config.USERNAME, 
+                    password = config.PASSWORD,
+                    security_token = config.SECURITY_TOKEN,
+                    version = config.VERSION)
 
     sf.query_all(query)
     return pd.json_normalize(sfdata_raw['records'])

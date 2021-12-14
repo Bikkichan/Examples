@@ -8,7 +8,7 @@ sf_open = open(sf_login)
 # returns JSON object as a dictionary
 creds = json.load(sf_open)
 
-username = creds['login']['username'],
-password = creds['login']['password'],
-security_token = creds['login']['token'],
-version = '47.0'
+USERNAME = creds['login']['username'],
+PASSWORD = creds['login']['password'],
+SECURITY_TOKEN = creds['login']['token'],
+VERSION = '47.0'

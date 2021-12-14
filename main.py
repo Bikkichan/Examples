@@ -1,5 +1,8 @@
-import sf_data as sf
-import data_format as format
+# import sys
+# sys.path.insert(0, './app')
+import app.data_format as format
+import app.sf_data as sf
+import app.config as config
 
 ## Querying Salesforce for data
 date_string = input('Enter the date (YYYY-MM-DD): ')
